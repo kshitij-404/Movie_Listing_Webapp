@@ -13,6 +13,7 @@ var SignInRouter = require("./routes/signin");
 const Users = require("./models/user");
 const ProtectedRouter = require("./routes/protected");
 const LogoutRouter = require("./routes/logout");
+const RefreshRouter = require("./routes/refresh");
 const FavouriteRouter = require("./routes/favourite");
 
 const connect = mongoose.connect(process.env.MONGOURI, {
@@ -47,6 +48,7 @@ app.use("/signup", SignUpRouter);
 app.use("/signin", SignInRouter);
 app.use("/logout", LogoutRouter);
 app.use("/protected", ProtectedRouter);
+app.use("/refresh", RefreshRouter);
 app.use(FavouriteRouter);
 
 if (process.env.NODE_ENV === "production") {
